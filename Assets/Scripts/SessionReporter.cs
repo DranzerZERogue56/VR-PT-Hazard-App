@@ -97,7 +97,7 @@ namespace VRPT.Hazards
             record.falseNegativeCount = record.missedHazards.Count;
 
             string json = JsonUtility.ToJson(record, prettyPrint: true);
-            string filename = $"session_{record.homeId}_{record.studentId}_{DateTime.UtcNow:yyyyMMdd_HHmmss}.json";
+            string filename = $"VR-PT_project_session_{record.homeId}_{record.studentId}_{DateTime.UtcNow:yyyyMMdd_HHmmss}.json";
             string path = Path.Combine(Application.persistentDataPath, filename);
             File.WriteAllText(path, json);
             Debug.Log($"[SessionReporter] Report saved: {path}");
