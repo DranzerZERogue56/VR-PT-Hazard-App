@@ -16,6 +16,11 @@ namespace VRPT.Hazards
 
         public void SetSelection(HazardType type) => currentSelection = type;
 
+        private void Start()
+        {
+            Debug.Log("HazardTagger Script Loaded...", this);
+        }
+
         private void OnEnable()
         {
             if (tagAction != null)
@@ -32,6 +37,7 @@ namespace VRPT.Hazards
 
         private void OnTagPressed(InputAction.CallbackContext _)
         {
+            Debug.Log("<<HAZARD TAGGED!>> Type Tagged: " + currentSelection, this);
             var origin = rayOrigin != null ? rayOrigin : transform;
             if (!Physics.Raycast(origin.position, origin.forward, out var hit, maxRayDistance, hitMask))
                 return;
